@@ -16,6 +16,11 @@
 ![Python](https://img.shields.io/badge/Python-3776ab?style=flat-square&logo=python&logoColor=white)
 ![Jupyter](https://img.shields.io/badge/Jupyter-f37626?style=flat-square&logo=jupyter&logoColor=white)
 
+<br>
+<br>
+
+[**Live MML Study Tracker**](https://hungngdoan.github.io/MSAI-2026-Prep/)
+
 </div>
 
 <br>
