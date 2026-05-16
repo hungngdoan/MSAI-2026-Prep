@@ -131,6 +131,84 @@ Link only — no copied materials
 
 ---
 
+## MML Study Tracker
+
+The static tracker lives in `docs/`. It uses:
+
+- `docs/index.html` for the page.
+- `docs/css/styles.css` for the Dragon Ball-inspired theme.
+- `docs/js/` for rendering and browser progress storage.
+- `docs/data/study-plan.json` for the study plan imported from `MML_Study_Plan_v3.xlsx`.
+- `docs/data/progress.json` for optional committed progress that should travel with the repo.
+
+### Run Locally
+
+Run the page through a local server because the app uses JavaScript modules and `fetch()`:
+
+```powershell
+cd d:\workspace\MSAI-2026-Prep
+python -m http.server 8126 --bind 127.0.0.1 -d docs
+```
+
+Then open:
+
+```text
+http://127.0.0.1:8126/
+```
+
+### Progress Storage
+
+Clicking a checkbox saves progress in the current browser under this `localStorage` key:
+
+```text
+mml-progress-v1
+```
+
+This is instant and works on GitHub Pages, but it stays on that browser/device.
+
+### Keep Progress Updated In Git
+
+To make progress part of a commit:
+
+1. Click `EXPORT` in the tracker.
+2. From the exported JSON, copy the `completed` object.
+3. Replace the contents of `docs/data/progress.json` with that object.
+4. Commit and push:
+
+```powershell
+git add docs/data/progress.json
+git commit -m "chore: update study tracker progress"
+git push
+```
+
+The app loads `docs/data/progress.json` first, then merges browser `localStorage` on top. That means committed progress gives every browser a baseline, and local clicks still work immediately.
+
+### GitHub Pages
+
+Yes, this can be viewable on GitHub Pages. In the repository settings:
+
+1. Go to `Settings` -> `Pages`.
+2. Set source to `Deploy from a branch`.
+3. Select your branch, usually `main`.
+4. Select the `/docs` folder.
+5. Save.
+
+After that, every push to the selected branch auto-deploys the static site. For a normal project repo, the URL is usually:
+
+```text
+https://<your-username>.github.io/MSAI-2026-Prep/
+```
+
+If the repository itself is named `<your-username>.github.io`, then it is served at:
+
+```text
+https://<your-username>.github.io/
+```
+
+No backend server is needed for viewing. GitHub Pages cannot save checkbox clicks back into the repo by itself, so use the export-and-commit workflow above when you want versioned progress.
+
+---
+
 ## Weekly Rhythm
 
 ```
@@ -146,6 +224,7 @@ My own notes, solutions, and experiments. External resources are references, not
 - Link to original sources. No copied slides, videos, or PDFs.
 - Summaries in my own words. Short quotes cited.
 - License notes included when adapting code.
+- Dragon Ball, Goku, and related marks belong to their respective owners. The tracker theme is fan-inspired, personal, non-commercial, and not monetized.
 
 ---
 
