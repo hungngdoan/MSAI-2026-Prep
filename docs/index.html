@@ -1,93 +1,129 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SAIYAN STUDY LOG :: MML TRACKER</title>
-<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Teko:wght@400;500;600;700&family=Oxanium:wght@500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-
-<div class="marquee">
-  <div class="m-track">
-    <span class="m-txt">&#9733; WELCOME TO THE HYPERBOLIC TIME CHAMBER &#9733; EVERY TASK = +150 POWER LEVEL &#9733; 14 WEEKS TO ULTRA INSTINCT &#9733; KAKAROT NEVER SKIPS A STUDY DAY &#9733; MATHEMATICS FOR MACHINE LEARNING &#9733; SURPASS YOUR LIMITS &#9733;</span>
-    <span class="m-txt">&#9733; WELCOME TO THE HYPERBOLIC TIME CHAMBER &#9733; EVERY TASK = +150 POWER LEVEL &#9733; 14 WEEKS TO ULTRA INSTINCT &#9733; KAKAROT NEVER SKIPS A STUDY DAY &#9733; MATHEMATICS FOR MACHINE LEARNING &#9733; SURPASS YOUR LIMITS &#9733;</span>
-  </div>
-</div>
-
-<div class="hero">
-  <img src="img/goku-banner.jpg" alt="banner" class="hero-goku">
-  <img src="img/dragon_appearance.png" alt="Shenron" class="hero-dragon">
-  <div class="hero-grad">
-    <div class="hero-tag">&#9670; Saiyan Study System // MSAI 2026 &#9670;</div>
-    <div class="hero-title">MML<br><span class="fire">STUDY TRACKER</span></div>
-    <div class="hero-sub">14 Weeks. 6 MML chapters. One goal.<br>Master <strong>Mathematics for Machine Learning</strong>.</div>
-    <div class="hero-links">
-      <a href="https://mml-book.github.io/" target="_blank" rel="noopener">MML Book</a>
-      <a href="https://textbooks.math.gatech.edu/ila/" target="_blank" rel="noopener">Interactive Linear Algebra</a>
-      <a href="https://www.learnpytorch.io/" target="_blank" rel="noopener">Learn PyTorch</a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hung Study Tracker</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Teko:wght@400;500;600;700&family=Oxanium:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="marquee">
+      <div class="m-track">
+        <span class="m-txt"
+          >&#9733; WELCOME TO THE HYPERBOLIC TIME CHAMBER &#9733; EVERY TASK =
+          +150 POWER LEVEL &#9733; 14 WEEKS TO ULTRA INSTINCT &#9733; KAKAROT
+          NEVER SKIPS A STUDY DAY &#9733; MATHEMATICS FOR MACHINE LEARNING
+          &#9733; SURPASS YOUR LIMITS &#9733;</span
+        >
+        <span class="m-txt"
+          >&#9733; WELCOME TO THE HYPERBOLIC TIME CHAMBER &#9733; EVERY TASK =
+          +150 POWER LEVEL &#9733; 14 WEEKS TO ULTRA INSTINCT &#9733; KAKAROT
+          NEVER SKIPS A STUDY DAY &#9733; MATHEMATICS FOR MACHINE LEARNING
+          &#9733; SURPASS YOUR LIMITS &#9733;</span
+        >
+      </div>
     </div>
-  </div>
-</div>
 
-<div class="wrap">
-  <div class="toolbar" id="streak-bar">
-    <div class="toolbar-left">
-      <div class="streak-item">
-        <span class="streak-icon">&#128293;</span>
-        <div>
-          <div class="streak-label">Power Today</div>
-          <div class="streak-val" id="skXP">0</div>
+    <div class="hero">
+      <img src="img/goku-banner.jpg" alt="banner" class="hero-goku" />
+      <img src="img/dragon_appearance.png" alt="Shenron" class="hero-dragon" />
+      <div class="hero-grad">
+        <div class="hero-tag">
+          &#9670; Saiyan Study System // MSAI 2026 &#9670;
         </div>
-      </div>
-      <div class="streak-sep"></div>
-      <div class="streak-item">
-        <span class="streak-icon">&#9876;</span>
-        <div>
-          <div class="streak-label">Missions Done</div>
-          <div class="streak-val" id="skDone">0/0</div>
+        <div class="hero-title">
+          MML<br /><span class="fire">STUDY TRACKER</span>
         </div>
-      </div>
-      <div class="streak-sep"></div>
-      <div class="streak-item">
-        <span class="streak-icon">&#9733;</span>
-        <div>
-          <div class="streak-label">Completion</div>
-          <div class="streak-val" id="skPct">0%</div>
+        <div class="hero-sub">
+          14 Weeks. 6 MML chapters. One goal.<br />Master
+          <strong>Mathematics for Machine Learning</strong>.
         </div>
-      </div>
-      <div class="streak-sep"></div>
-      <div class="streak-item">
-        <span class="streak-icon">&#127942;</span>
-        <div>
-          <div class="streak-label">Rank</div>
-          <div class="streak-val rank-mini" id="skRank">EARTHLING</div>
+        <div class="hero-links">
+          <a href="https://mml-book.github.io/" target="_blank" rel="noopener"
+            >MML Book</a
+          >
+          <a
+            href="https://textbooks.math.gatech.edu/ila/"
+            target="_blank"
+            rel="noopener"
+            >Interactive Linear Algebra</a
+          >
+          <a href="https://www.learnpytorch.io/" target="_blank" rel="noopener"
+            >Learn PyTorch</a
+          >
         </div>
       </div>
     </div>
-    <div class="toolbar-right">
-      <a id="nav-expand">EXPAND ALL</a>
-      <a id="nav-collapse">COLLAPSE ALL</a>
-      <a id="nav-export">EXPORT</a>
-      <a id="nav-current">JUMP TO CURRENT</a>
+
+    <div class="wrap">
+      <div class="toolbar" id="streak-bar">
+        <div class="toolbar-left">
+          <div class="streak-item">
+            <span class="streak-icon">&#128293;</span>
+            <div>
+              <div class="streak-label">Power Today</div>
+              <div class="streak-val" id="skXP">0</div>
+            </div>
+          </div>
+          <div class="streak-sep"></div>
+          <div class="streak-item">
+            <span class="streak-icon">&#9876;</span>
+            <div>
+              <div class="streak-label">Missions Done</div>
+              <div class="streak-val" id="skDone">0/0</div>
+            </div>
+          </div>
+          <div class="streak-sep"></div>
+          <div class="streak-item">
+            <span class="streak-icon">&#9733;</span>
+            <div>
+              <div class="streak-label">Completion</div>
+              <div class="streak-val" id="skPct">0%</div>
+            </div>
+          </div>
+          <div class="streak-sep"></div>
+          <div class="streak-item">
+            <span class="streak-icon">&#127942;</span>
+            <div>
+              <div class="streak-label">Rank</div>
+              <div class="streak-val rank-mini" id="skRank">EARTHLING</div>
+            </div>
+          </div>
+        </div>
+        <div class="toolbar-right">
+          <a id="nav-expand">EXPAND ALL</a>
+          <a id="nav-collapse">COLLAPSE ALL</a>
+          <a id="nav-export">EXPORT</a>
+          <a id="nav-current">JUMP TO CURRENT</a>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div id="main-content"></div>
+        <div class="side" id="sidebar"></div>
+      </div>
     </div>
-  </div>
 
-  <div class="grid">
-    <div id="main-content"></div>
-    <div class="side" id="sidebar"></div>
-  </div>
-</div>
+    <div class="foot">
+      <div class="fl">
+        Powered by Capsule Corp Technology | Saiyan Study System v9001
+      </div>
+      <div class="fl">
+        Missions logged: <span id="fS">0</span> | Training since May 2026
+      </div>
+      <div class="fl">
+        Dragon Ball, Goku, and related marks belong to their respective owners.
+        This fan-inspired study tracker is personal, non-commercial, and not
+        monetized.
+      </div>
+    </div>
 
-<div class="foot">
-  <div class="fl">Powered by Capsule Corp Technology | Saiyan Study System v9001</div>
-  <div class="fl">Missions logged: <span id="fS">0</span> | Training since May 2026</div>
-  <div class="fl">Dragon Ball, Goku, and related marks belong to their respective owners. This fan-inspired study tracker is personal, non-commercial, and not monetized.</div>
-</div>
+    <div class="toast" id="toast"></div>
 
-<div class="toast" id="toast"></div>
-
-<script type="module" src="js/main.js"></script>
-</body>
+    <script type="module" src="js/main.js"></script>
+  </body>
 </html>
