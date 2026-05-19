@@ -65,7 +65,7 @@ body{
 /* HERO BANNER */
 .hero{
   width:var(--page-width);
-  height:280px;
+  height:320px;
   margin:0 auto;
   position:relative;overflow:hidden;
   border-bottom:3px solid var(--accent);
@@ -147,7 +147,7 @@ body{
   border-bottom-color:var(--bg);border-right-color:var(--bg);
 }
 @media(max-width:700px){
-  .hero{height:200px;}
+  .hero{height:230px;}
   .hero-title{font-size:34px;}
   .hero-grad{padding:16px 20px;}
   .hero-sub{max-width:275px;}
