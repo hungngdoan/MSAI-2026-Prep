@@ -17,7 +17,8 @@
 </div>
 
 <div class="hero">
-  <img src="goku-banner.jpg" alt="banner">
+  <img src="goku-banner.jpg" alt="banner" class="hero-goku">
+  <img src="dragon_appearance.png" alt="Shenron" class="hero-dragon">
   <div class="hero-grad">
     <div class="hero-tag">&#9670; Saiyan Study System // MSAI 2026 &#9670;</div>
     <div class="hero-title">MML<br><span class="fire">STUDY TRACKER</span></div>
@@ -31,48 +32,46 @@
 </div>
 
 <div class="wrap">
-  <div class="streak-bar" id="streak-bar">
-    <div class="streak-item">
-      <span class="streak-icon">&#128293;</span>
-      <div>
-        <div class="streak-label">Power Today</div>
-        <div class="streak-val" id="skXP">0</div>
+  <div class="toolbar" id="streak-bar">
+    <div class="toolbar-left">
+      <div class="streak-item">
+        <span class="streak-icon">&#128293;</span>
+        <div>
+          <div class="streak-label">Power Today</div>
+          <div class="streak-val" id="skXP">0</div>
+        </div>
+      </div>
+      <div class="streak-sep"></div>
+      <div class="streak-item">
+        <span class="streak-icon">&#9876;</span>
+        <div>
+          <div class="streak-label">Missions Done</div>
+          <div class="streak-val" id="skDone">0/0</div>
+        </div>
+      </div>
+      <div class="streak-sep"></div>
+      <div class="streak-item">
+        <span class="streak-icon">&#9733;</span>
+        <div>
+          <div class="streak-label">Completion</div>
+          <div class="streak-val" id="skPct">0%</div>
+        </div>
+      </div>
+      <div class="streak-sep"></div>
+      <div class="streak-item">
+        <span class="streak-icon">&#127942;</span>
+        <div>
+          <div class="streak-label">Rank</div>
+          <div class="streak-val rank-mini" id="skRank">EARTHLING</div>
+        </div>
       </div>
     </div>
-    <div class="streak-sep"></div>
-    <div class="streak-item">
-      <span class="streak-icon">&#9876;</span>
-      <div>
-        <div class="streak-label">Missions Done</div>
-        <div class="streak-val" id="skDone">0/0</div>
-      </div>
+    <div class="toolbar-right">
+      <a id="nav-expand">EXPAND ALL</a>
+      <a id="nav-collapse">COLLAPSE ALL</a>
+      <a id="nav-export">EXPORT</a>
+      <a id="nav-current">JUMP TO CURRENT</a>
     </div>
-    <div class="streak-sep"></div>
-    <div class="streak-item">
-      <span class="streak-icon">&#9733;</span>
-      <div>
-        <div class="streak-label">Completion</div>
-        <div class="streak-val" id="skPct">0%</div>
-      </div>
-    </div>
-    <div class="streak-sep"></div>
-    <div class="streak-item">
-      <span class="streak-icon">&#127942;</span>
-      <div>
-        <div class="streak-label">Rank</div>
-        <div class="streak-val rank-mini" id="skRank">EARTHLING</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="nav">
-    <a id="nav-expand">EXPAND ALL</a>
-    <span class="nav-dot">&#9670;</span>
-    <a id="nav-collapse">COLLAPSE ALL</a>
-    <span class="nav-dot">&#9670;</span>
-    <a id="nav-export">EXPORT</a>
-    <span class="nav-dot">&#9670;</span>
-    <a id="nav-current">JUMP TO CURRENT</a>
   </div>
 
   <div class="grid">
