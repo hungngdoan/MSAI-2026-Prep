@@ -119,7 +119,9 @@ MSAI-2026-Prep
 |-- ch05/       Vector calculus notes, notebooks, module, tests
 |-- ch06/       Probability notes, notebooks, module, tests
 |-- ch07/       Optimization notes, notebooks, module, tests
-`-- capstone/   Final neural-network project and writeup
+|-- capstone/   Final neural-network project and writeup
+|-- package.json
+`-- scripts/serve-docs.js
 ```
 
 ---
@@ -139,8 +141,9 @@ The static tracker lives in `docs/`. It uses:
 - `docs/index.html` for the page.
 - `docs/css/styles.css` for the Dragon Ball-inspired theme.
 - `docs/js/` for rendering and browser progress storage.
-- `docs/data/study-plan.json` for the study plan imported from `MML_Study_Plan_v3.xlsx`.
+- `docs/data/study-plan.json` for the study plan imported from `MML_Study_Plan_v4.xlsx`.
 - `docs/data/progress.json` for optional committed progress that should travel with the repo.
+- `package.json` and `scripts/serve-docs.js` for the local `npm start` server.
 
 ### Run Locally
 
@@ -148,14 +151,23 @@ Run the page through a local server because the app uses JavaScript modules and 
 
 ```powershell
 cd d:\workspace\MSAI-2026-Prep
-python -m http.server 8126 --bind 127.0.0.1 -d docs
+npm start
 ```
 
 Then open:
 
 ```text
-http://127.0.0.1:8126/
+http://localhost:8080/
 ```
+
+`npm start` serves the static `docs/` folder with Node and prints a clickable
+terminal line:
+
+```text
+[11ty] Server at http://localhost:8080/
+```
+
+There are no npm dependencies to install for the tracker.
 
 ### Progress Storage
 
