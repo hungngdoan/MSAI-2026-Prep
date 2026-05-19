@@ -2,41 +2,14 @@
 
 # `>_ MSAI 2026 Prep`
 
-<br>
-
-![Start: May 2026](https://img.shields.io/badge/start-May%202026-0d1117?style=for-the-badge&labelColor=161b22)
-![Target: Aug 2026](https://img.shields.io/badge/target-July%2030-0d1117?style=for-the-badge&labelColor=161b22)
-![Status: In Progress](https://img.shields.io/badge/status-in%20progress-f59e0b?style=for-the-badge&labelColor=161b22)
-![PyTorch](https://img.shields.io/badge/PyTorch-ee4c2c?style=flat-square&logo=pytorch&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776ab?style=flat-square&logo=python&logoColor=white)
-![Jupyter](https://img.shields.io/badge/Jupyter-f37626?style=flat-square&logo=jupyter&logoColor=white)
-<br>
-
 [**Live MML Study Tracker**](https://hungngdoan.github.io/MSAI-2026-Prep/)
 
 </div>
 
-<br>
-
 <div align="center">
-
 🎯 **13 weeks. Math, PyTorch, deep learning, projects.**
 **Everything I build on the road to UT Austin MSAI.**
-
 </div>
-
----
-
-## Phases
-
-```
-  May                         June                         July
-  ┌───────────────────┐       ┌──────────────────────┐     ┌──────────────────────┐
-  │  Foundations      │       │   Deep Learning      │     │   Projects &         │
-  │  Math + PyTorch   │       │  CNNs → Transformers │     │     Application      │
-  │  basics           │       │  + first project     │     │     materials        │
-  └───────────────────┘       └──────────────────────┘     └──────────────────────┘
-```
 
 |        Phase         | Focus                                                        | Output                            |
 | :------------------: | :----------------------------------------------------------- | :-------------------------------- |
