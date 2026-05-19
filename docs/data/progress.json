@@ -1,1 +1,10 @@
-{}
+{
+  "exportedAt": "2026-05-19T03:35:44.256Z",
+  "plan": "MML Study Plan",
+  "completed": {
+    "w1d1": {
+      "completedAt": "2026-05-18",
+      "notes": ""
+    }
+  }
+}
