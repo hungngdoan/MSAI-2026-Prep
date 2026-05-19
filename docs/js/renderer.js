@@ -280,23 +280,34 @@ export const Renderer = {
     const badge = TYPE_BADGES[task.type] || { label: task.type, cls: 'badge-read' };
     const dateStamp = state ? `<span class="date-stamp">DONE ${formatDate(state.completedAt, { month: 'short', day: 'numeric', year: 'numeric' })}</span>` : '';
     const deliverable = task.deliverable ? `<span class="deliverable-pill">${escapeHtml(task.deliverable)}</span>` : '';
+    const ptTrack = task.ptChapter ? `
+          <div class="pt-track">
+            <div class="pt-track-head">
+              <span class="pt-chip">${escapeHtml(task.ptChapter)}</span>
+              <strong>${escapeHtml(task.ptTopic)}</strong>
+              <span>${escapeHtml(task.ptMinutes)}m</span>
+            </div>
+            <span class="pt-tasks">${escapeHtml(task.ptTasks)}</span>
+          </div>
+        ` : '';
 
     return `
       <div class="tr${doneCls}${currentCls}${futureCls}" data-id="${escapeHtml(task.id)}" data-task-date="${escapeHtml(task.date)}">
         <div class="ck">${checkMark}</div>
         <div class="task-info">
+          <span class="tt">${escapeHtml(task.topic)}</span>
+          <span class="task-desc">${escapeHtml(task.description)}</span>
           <div class="task-meta">
+            <span class="pri ${badge.cls}">${escapeHtml(badge.label)}</span>
+            <span class="xp">${task.minutes}m</span>
+            ${dateStamp}
             <span class="planned-date">${formatDate(task.date, { weekday: 'short', month: 'short', day: 'numeric' })}</span>
             <span class="source-pill">${escapeHtml(task.source)}</span>
             <span class="source-pill">${escapeHtml(task.sections)}</span>
             ${deliverable}
           </div>
-          <span class="tt">${escapeHtml(task.topic)}</span>
-          <span class="task-desc">${escapeHtml(task.description)}</span>
+          ${ptTrack}
         </div>
-        <span class="pri ${badge.cls}">${escapeHtml(badge.label)}</span>
-        <span class="xp">${task.minutes}m</span>
-        ${dateStamp}
       </div>
     `;
   },
