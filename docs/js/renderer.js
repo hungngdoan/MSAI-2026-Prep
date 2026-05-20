@@ -45,6 +45,21 @@ function escapeHtml(value) {
   }[char]));
 }
 
+function splitPtTasks(text) {
+  return String(text ?? '')
+    .split(/(?<=[.?!])\s+(?=[A-Z(])/)
+    .map((part) => part.trim().replace(/\.$/, ''))
+    .filter((part) => part.length > 0);
+}
+
+function shortStamp(iso) {
+  if (!iso) return { weekday: '', md: '' };
+  const d = dateFromIso(iso);
+  const weekday = d.toLocaleDateString('en-US', { weekday: 'short' }).toUpperCase();
+  const md = `${d.getMonth() + 1}/${d.getDate()}`;
+  return { weekday, md };
+}
+
 function copyToClipboard(text) {
   if (navigator.clipboard && window.isSecureContext) {
     return navigator.clipboard.writeText(text);
@@ -280,14 +295,27 @@ export const Renderer = {
     const badge = TYPE_BADGES[task.type] || { label: task.type, cls: 'badge-read' };
     const dateStamp = state ? `<span class="date-stamp">DONE ${formatDate(state.completedAt, { month: 'short', day: 'numeric', year: 'numeric' })}</span>` : '';
     const deliverable = task.deliverable ? `<span class="deliverable-pill">${escapeHtml(task.deliverable)}</span>` : '';
+    const ptStatusLabel = state ? 'CLEARED' : (task.date === today ? 'ACTIVE' : (task.date > today ? 'INCOMING' : 'MISSED'));
+    const ptStatusCls = state ? 'done' : (task.date === today ? 'current' : (task.date > today ? 'future' : 'pending'));
+    const stampStatus = state ? 'done' : (task.date === today ? 'current' : (task.date > today ? 'future' : 'missed'));
+    const stamp = shortStamp(task.date);
+    const stampHtml = `
+        <div class="task-date-stamp stamp-${stampStatus}" aria-label="${escapeHtml(task.date)}">
+          <span class="stamp-day">${escapeHtml(stamp.weekday)}</span>
+          <span class="stamp-md">${escapeHtml(stamp.md)}</span>
+        </div>`;
+    const ptBullets = task.ptChapter
+      ? splitPtTasks(task.ptTasks).map((line) => `<li>${escapeHtml(line)}</li>`).join('')
+      : '';
     const ptTrack = task.ptChapter ? `
           <div class="pt-track">
             <div class="pt-track-head">
               <span class="pt-chip">${escapeHtml(task.ptChapter)}</span>
-              <strong>${escapeHtml(task.ptTopic)}</strong>
-              <span>${escapeHtml(task.ptMinutes)}m</span>
+              <strong class="pt-topic">${escapeHtml(task.ptTopic)}</strong>
+              <span class="pt-status pt-status-${ptStatusCls}">${ptStatusLabel}</span>
+              <span class="pt-mins">${escapeHtml(task.ptMinutes)}m</span>
             </div>
-            <span class="pt-tasks">${escapeHtml(task.ptTasks)}</span>
+            <ul class="pt-tasks-list">${ptBullets}</ul>
           </div>
         ` : '';
 
@@ -301,13 +329,13 @@ export const Renderer = {
             <span class="pri ${badge.cls}">${escapeHtml(badge.label)}</span>
             <span class="xp">${task.minutes}m</span>
             ${dateStamp}
-            <span class="planned-date">${formatDate(task.date, { weekday: 'short', month: 'short', day: 'numeric' })}</span>
             <span class="source-pill">${escapeHtml(task.source)}</span>
             <span class="source-pill">${escapeHtml(task.sections)}</span>
             ${deliverable}
           </div>
           ${ptTrack}
         </div>
+        ${stampHtml}
       </div>
     `;
   },

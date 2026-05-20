@@ -1,4 +1,8 @@
 const STORAGE_KEY = 'mml-progress-v1';
+const EPHEMERAL = (() => {
+  const host = location.hostname;
+  return host !== 'localhost' && host !== '127.0.0.1' && host !== '';
+})();
 
 function todayIso() {
   const now = new Date();
@@ -13,6 +17,13 @@ export const Store = {
 
   _load() {
     if (this._cache) return this._cache;
+    if (EPHEMERAL) {
+      this._cache = {};
+      try {
+        localStorage.removeItem(STORAGE_KEY);
+      } catch {}
+      return this._cache;
+    }
     try {
       const raw = localStorage.getItem(STORAGE_KEY);
       this._cache = raw ? JSON.parse(raw) : {};
@@ -23,6 +34,7 @@ export const Store = {
   },
 
   _save() {
+    if (EPHEMERAL) return;
     localStorage.setItem(STORAGE_KEY, JSON.stringify(this._cache));
   },
 

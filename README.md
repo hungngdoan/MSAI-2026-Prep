@@ -130,27 +130,29 @@ npm start
 Then open:
 
 ```text
-http://localhost:8080/
+http://localhost:8082/
 ```
 
 `npm start` serves the static `docs/` folder with Node and prints a clickable
 terminal line:
 
 ```text
-[11ty] Server at http://localhost:8080/
+[MSAI] Server at http://localhost:8082/
 ```
 
 There are no npm dependencies to install for the tracker.
 
 ### Progress Storage
 
-Clicking a checkbox saves progress in the current browser under this `localStorage` key:
+When running locally through `localhost`, clicking a checkbox saves progress in the current browser under this `localStorage` key:
 
 ```text
 mml-progress-v1
 ```
 
-This is instant and works on GitHub Pages, but it stays on that browser/device.
+This keeps the local click -> export -> commit workflow intact while editing.
+
+On the deployed GitHub Pages site, visitor clicks are session-only. Refreshing, navigating, or opening a new tab returns the tracker to the committed state in `docs/data/progress.json`. Any stale `mml-progress-v1` data from older deployed visits is cleared automatically on the next visit.
 
 ### Keep Progress Updated In Git
 
@@ -167,7 +169,7 @@ git commit -m "chore: update study tracker progress"
 git push
 ```
 
-The app loads `docs/data/progress.json` first, then merges browser `localStorage` on top. That means committed progress gives every browser a baseline, and local clicks still work immediately.
+The app loads `docs/data/progress.json` first. On `localhost`, it then merges browser `localStorage` on top so local clicks still work immediately. On GitHub Pages, browser progress is not persisted.
 
 ### GitHub Pages
 
