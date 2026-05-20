@@ -8,7 +8,7 @@ async function loadStudyPlan() {
 
 async function loadCommittedProgress() {
   try {
-    const response = await fetch('./data/progress.json', { cache: 'no-store' });
+    const response = await fetch('./progress.json', { cache: 'no-store' });
     if (!response.ok) return {};
     return response.json();
   } catch {
