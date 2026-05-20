@@ -513,9 +513,7 @@ body {
     max-width: 60%;
   }
   .hero-goku {
-    left: 50%;
-    object-position: 22% 30%;
-    filter: saturate(1.1) contrast(1.05);
+    display: none;
   }
   .hero-dragon {
     left: auto;
@@ -590,9 +588,6 @@ body {
   }
   .hero-grad {
     padding: 18px 18px;
-  }
-  .hero-goku {
-    object-position: 16% 32%;
   }
   .hero-dragon {
     right: -40px;

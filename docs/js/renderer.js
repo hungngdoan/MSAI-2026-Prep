@@ -353,12 +353,21 @@ export const Renderer = {
       .filter((item) => item.state.completedAt === today)
       .reduce((sum, item) => sum + item.task.minutes, 0);
     const pct = total > 0 ? Math.round((done / total) * 100) : 0;
+    const dateSet = new Set(completed.map((item) => item.state.completedAt));
+    let streak = 0;
+    const check = new Date(today + 'T00:00:00');
+    if (!dateSet.has(today)) check.setDate(check.getDate() - 1);
+    while (dateSet.has(check.toISOString().slice(0, 10))) {
+      streak++;
+      check.setDate(check.getDate() - 1);
+    }
     return {
       total,
       done,
       left: total - done,
       pct,
       minutes,
+      streak,
       todayDone,
       todayMinutes,
       power: done * 150,
@@ -371,7 +380,7 @@ export const Renderer = {
   },
 
   _updateStreakBar(stats, rank) {
-    document.getElementById('skXP').textContent = stats.todayPower.toLocaleString();
+    document.getElementById('skXP').textContent = `${stats.streak} day${stats.streak !== 1 ? 's' : ''}`;
     document.getElementById('skDone').textContent = `${stats.done}/${stats.total}`;
     document.getElementById('skPct').textContent = `${stats.pct}%`;
     const rankEl = document.getElementById('skRank');
