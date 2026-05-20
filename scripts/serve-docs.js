@@ -3,7 +3,7 @@ const http = require("http");
 const path = require("path");
 
 const host = "localhost";
-const port = Number(process.env.PORT || 8080);
+const port = Number(process.env.PORT || 8082);
 const root = path.resolve(__dirname, "..", "docs");
 
 const mimeTypes = {
@@ -53,5 +53,5 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(port, host, () => {
-  console.log(`[11ty] Server at http://${host}:${port}/`);
+  console.log(`[MSAI] Server at http://${host}:${port}/`);
 });

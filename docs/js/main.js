@@ -29,4 +29,17 @@ async function init() {
   Renderer.bindEvents();
 }
 
-document.addEventListener('DOMContentLoaded', init);
+function armDragonEntrance() {
+  const dragon = document.querySelector('.hero-dragon');
+  if (!dragon) return;
+  if (dragon.complete && dragon.naturalWidth > 0) {
+    dragon.classList.add('loaded');
+  } else {
+    dragon.addEventListener('load', () => dragon.classList.add('loaded'), { once: true });
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  armDragonEntrance();
+  init();
+});

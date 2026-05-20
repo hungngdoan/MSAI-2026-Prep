@@ -110,11 +110,31 @@ body {
   border-bottom: 3px solid var(--accent);
   border-left: 1px solid #2a2000;
   border-right: 1px solid #2a2000;
+  box-shadow:
+    inset 0 -50px 80px -40px rgba(255, 106, 0, 0.32),
+    inset 0 0 120px -50px rgba(255, 46, 46, 0.18);
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 55%;
+  height: 100%;
+  background: radial-gradient(
+    ellipse at 70% 50%,
+    rgba(255, 106, 0, 0.22) 0%,
+    rgba(255, 46, 46, 0.10) 35%,
+    transparent 68%
+  );
+  pointer-events: none;
+  z-index: 2;
+  animation: heroAura 5s ease-in-out infinite;
 }
 .hero-goku {
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 55%;
   transform: translate(-50%, -50%);
   width: 100%;
   height: 100%;
@@ -126,17 +146,225 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(0.5);
   width: auto;
-  height: calc(100% - 14px);
+  height: 62%;
   max-width: 100%;
   object-fit: contain;
   object-position: center;
-  opacity: 1;
-  z-index: 2;
+  opacity: 0;
+  z-index: 3;
   pointer-events: none;
   filter: saturate(1.24) brightness(1.12) contrast(1.16)
-    drop-shadow(0 0 18px rgba(51, 204, 51, 0.35));
+    drop-shadow(0 0 22px rgba(51, 204, 51, 0.55))
+    drop-shadow(0 0 44px rgba(255, 106, 0, 0.28));
+}
+.hero-dragon.loaded {
+  animation:
+    dragonEnter 1.9s cubic-bezier(0.16, 1, 0.3, 1) forwards,
+    dragonFloat 7s ease-in-out 1.9s infinite,
+    dragonAura 4.5s ease-in-out 1.9s infinite;
+}
+@keyframes dragonEnter {
+  0% {
+    transform: translate(-50%, 25%) scale(0.4);
+    opacity: 0;
+    filter: brightness(3) saturate(2) contrast(1.4)
+      drop-shadow(0 0 80px rgba(51, 204, 51, 1))
+      drop-shadow(0 0 120px rgba(255, 255, 255, 0.6));
+  }
+  35% {
+    opacity: 0.85;
+    filter: brightness(2.2) saturate(1.8) contrast(1.3)
+      drop-shadow(0 0 70px rgba(51, 204, 51, 0.9))
+      drop-shadow(0 0 40px rgba(255, 255, 255, 0.4));
+  }
+  60% {
+    transform: translate(-50%, -56%) scale(1.06);
+    opacity: 1;
+    filter: brightness(1.55) saturate(1.5) contrast(1.22)
+      drop-shadow(0 0 50px rgba(51, 204, 51, 0.7))
+      drop-shadow(0 0 26px rgba(255, 106, 0, 0.4));
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    filter: saturate(1.24) brightness(1.12) contrast(1.16)
+      drop-shadow(0 0 22px rgba(51, 204, 51, 0.55))
+      drop-shadow(0 0 44px rgba(255, 106, 0, 0.28));
+  }
+}
+@keyframes dragonFloat {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -52%) scale(1.012);
+  }
+}
+@keyframes dragonAura {
+  0%, 100% {
+    filter: saturate(1.24) brightness(1.12) contrast(1.16)
+      drop-shadow(0 0 22px rgba(51, 204, 51, 0.55))
+      drop-shadow(0 0 44px rgba(255, 106, 0, 0.28));
+  }
+  50% {
+    filter: saturate(1.42) brightness(1.22) contrast(1.2)
+      drop-shadow(0 0 44px rgba(51, 204, 51, 0.9))
+      drop-shadow(0 0 88px rgba(255, 106, 0, 0.55))
+      drop-shadow(0 0 140px rgba(51, 204, 51, 0.32));
+  }
+}
+
+/* DRAGON BALLS */
+.dballs {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+.dball {
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 32% 28%,
+    #fff0c0 0%,
+    #ffd682 20%,
+    var(--accent2) 52%,
+    #d24a00 82%,
+    #7a2400 100%
+  );
+  box-shadow:
+    inset -2px -3px 7px rgba(80, 20, 0, 0.45),
+    inset 2px 3px 5px rgba(255, 224, 168, 0.38),
+    0 0 16px rgba(255, 154, 0, 0.85),
+    0 0 34px rgba(255, 106, 0, 0.5),
+    0 0 60px rgba(255, 194, 0, 0.28);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  padding: 5px;
+  transform: translate(-50%, -50%);
+  animation:
+    ballFloat 5.5s ease-in-out infinite,
+    ballGlow 3.4s ease-in-out infinite;
+}
+.dball::after {
+  content: "";
+  position: absolute;
+  top: 12%;
+  left: 14%;
+  width: 16%;
+  height: 16%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 35% 35%,
+    rgba(255, 255, 255, 0.7) 0%,
+    rgba(255, 255, 255, 0.35) 40%,
+    rgba(255, 255, 255, 0.08) 70%,
+    transparent 85%
+  );
+  filter: blur(0.5px);
+  pointer-events: none;
+  animation: ballShine 3.4s ease-in-out infinite;
+}
+.dball i {
+  font-size: 7px;
+  line-height: 0;
+  color: #c20000;
+  font-style: normal;
+  text-shadow: 0 0 1.5px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.4));
+}
+.dball i::before {
+  content: "\2605";
+}
+
+/* Star patterns within each ball (3x3 grid cells) */
+.dball-1 i:nth-child(1) { grid-area: 2 / 2; }
+
+.dball-2 i:nth-child(1) { grid-area: 2 / 1; }
+.dball-2 i:nth-child(2) { grid-area: 2 / 3; }
+
+.dball-3 i:nth-child(1) { grid-area: 1 / 2; }
+.dball-3 i:nth-child(2) { grid-area: 3 / 1; }
+.dball-3 i:nth-child(3) { grid-area: 3 / 3; }
+
+.dball-4 i:nth-child(1) { grid-area: 1 / 1; }
+.dball-4 i:nth-child(2) { grid-area: 1 / 3; }
+.dball-4 i:nth-child(3) { grid-area: 3 / 1; }
+.dball-4 i:nth-child(4) { grid-area: 3 / 3; }
+
+.dball-5 i:nth-child(1) { grid-area: 1 / 1; }
+.dball-5 i:nth-child(2) { grid-area: 1 / 3; }
+.dball-5 i:nth-child(3) { grid-area: 2 / 2; }
+.dball-5 i:nth-child(4) { grid-area: 3 / 1; }
+.dball-5 i:nth-child(5) { grid-area: 3 / 3; }
+
+.dball-6 i:nth-child(1) { grid-area: 1 / 1; }
+.dball-6 i:nth-child(2) { grid-area: 1 / 2; }
+.dball-6 i:nth-child(3) { grid-area: 1 / 3; }
+.dball-6 i:nth-child(4) { grid-area: 3 / 1; }
+.dball-6 i:nth-child(5) { grid-area: 3 / 2; }
+.dball-6 i:nth-child(6) { grid-area: 3 / 3; }
+
+.dball-7 i:nth-child(1) { grid-area: 1 / 1; }
+.dball-7 i:nth-child(2) { grid-area: 1 / 2; }
+.dball-7 i:nth-child(3) { grid-area: 1 / 3; }
+.dball-7 i:nth-child(4) { grid-area: 2 / 2; }
+.dball-7 i:nth-child(5) { grid-area: 3 / 1; }
+.dball-7 i:nth-child(6) { grid-area: 3 / 2; }
+.dball-7 i:nth-child(7) { grid-area: 3 / 3; }
+
+/* 7 balls evenly spaced around Shenron (center 50%/50%, radius 140px). */
+.dball-1 { top: calc(50% - 140px); left: 50%;                animation-delay: 0s; }
+.dball-2 { top: calc(50% - 87px);  left: calc(50% + 109px); animation-delay: -0.8s; }
+.dball-3 { top: calc(50% + 31px);  left: calc(50% + 137px); animation-delay: -1.6s; }
+.dball-4 { top: calc(50% + 126px); left: calc(50% + 61px);  animation-delay: -2.4s; width: 38px; height: 38px; }
+.dball-5 { top: calc(50% + 126px); left: calc(50% - 61px);  animation-delay: -3.2s; }
+.dball-6 { top: calc(50% + 31px);  left: calc(50% - 137px); animation-delay: -4s; }
+.dball-7 { top: calc(50% - 87px);  left: calc(50% - 109px); animation-delay: -4.8s; width: 40px; height: 40px; }
+
+@keyframes ballFloat {
+  0%, 100% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  50% {
+    transform: translate(-50%, calc(-50% - 8px)) rotate(8deg);
+  }
+}
+@keyframes ballGlow {
+  0%, 100% {
+    box-shadow:
+      inset -2px -3px 7px rgba(80, 20, 0, 0.45),
+      inset 2px 3px 5px rgba(255, 224, 168, 0.38),
+      0 0 16px rgba(255, 154, 0, 0.8),
+      0 0 34px rgba(255, 106, 0, 0.48),
+      0 0 60px rgba(255, 194, 0, 0.26);
+  }
+  50% {
+    box-shadow:
+      inset -2px -3px 7px rgba(80, 20, 0, 0.45),
+      inset 2px 3px 5px rgba(255, 224, 168, 0.48),
+      0 0 24px rgba(255, 174, 40, 0.95),
+      0 0 50px rgba(255, 106, 0, 0.68),
+      0 0 88px rgba(255, 194, 0, 0.42);
+  }
+}
+@keyframes ballShine {
+  0%, 100% {
+    opacity: 0.55;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.05);
+  }
 }
 .hero-grad {
   position: relative;
@@ -144,12 +372,14 @@ body {
   background:
     linear-gradient(
       90deg,
-      rgba(10, 10, 10, 0.92) 0%,
-      rgba(10, 10, 10, 0.5) 38%,
-      rgba(10, 10, 10, 0.12) 62%,
+      rgba(0, 0, 0, 0.97) 0%,
+      rgba(0, 0, 0, 0.94) 18%,
+      rgba(6, 6, 6, 0.78) 28%,
+      rgba(10, 10, 10, 0.32) 42%,
+      rgba(10, 10, 10, 0.08) 62%,
       transparent 100%
     ),
-    linear-gradient(180deg, transparent 60%, rgba(10, 10, 10, 0.7) 100%);
+    linear-gradient(180deg, transparent 55%, rgba(10, 10, 10, 0.75) 100%);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -172,10 +402,11 @@ body {
   color: var(--gold);
   text-shadow:
     2px 3px 0 #000,
-    0 0 40px rgba(255, 100, 0, 0.2);
+    0 0 40px rgba(255, 100, 0, 0.25);
   line-height: 0.95;
   text-transform: uppercase;
   letter-spacing: 3px;
+  animation: titleBurn 3.6s ease-in-out infinite;
 }
 .hero-title .fire {
   color: var(--accent);
@@ -235,26 +466,245 @@ body {
 }
 @media (max-width: 700px) {
   .hero {
-    min-height: 180px;
+    min-height: 280px;
+    box-shadow:
+      inset 0 -40px 60px -30px rgba(255, 106, 0, 0.45),
+      inset 0 0 80px -30px rgba(255, 46, 46, 0.25);
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 75%;
+    height: 100%;
+    background: radial-gradient(
+      ellipse at 85% 50%,
+      rgba(255, 106, 0, 0.32) 0%,
+      rgba(255, 46, 46, 0.14) 32%,
+      transparent 65%
+    );
+    pointer-events: none;
+    z-index: 2;
+    animation: heroAura 4.5s ease-in-out infinite;
   }
   .hero-title {
-    font-size: 34px;
+    font-size: 36px;
+    max-width: 62%;
+    animation: titleBurn 3.2s ease-in-out infinite;
+  }
+  .hero-tag {
+    max-width: 62%;
   }
   .hero-grad {
-    padding: 16px 20px;
+    padding: 22px 22px;
+    z-index: 5;
+    background:
+      linear-gradient(
+        90deg,
+        rgba(10, 10, 10, 0.96) 0%,
+        rgba(10, 10, 10, 0.82) 42%,
+        rgba(10, 10, 10, 0.22) 72%,
+        transparent 100%
+      ),
+      linear-gradient(180deg, transparent 55%, rgba(10, 10, 10, 0.78) 100%);
   }
   .hero-sub {
-    max-width: 275px;
+    max-width: 60%;
   }
   .hero-goku {
-    object-position: 78% 30%;
+    left: 50%;
+    object-position: 22% 30%;
+    filter: saturate(1.1) contrast(1.05);
+  }
+  .hero-dragon {
+    left: auto;
+    right: -28px;
+    top: 50%;
+    transform: translateY(-50%) scale(0.5);
+    height: 108%;
+    width: auto;
+    max-width: 58%;
+    z-index: 3;
+    filter: saturate(1.45) brightness(1.22) contrast(1.25)
+      drop-shadow(0 0 18px rgba(51, 204, 51, 0.7))
+      drop-shadow(0 0 36px rgba(255, 106, 0, 0.45))
+      drop-shadow(0 0 6px rgba(255, 255, 255, 0.25));
+    animation: none;
+  }
+  .hero-dragon.loaded {
+    animation:
+      dragonEnterMobile 1.9s cubic-bezier(0.16, 1, 0.3, 1) forwards,
+      dragonFloatMobile 6s ease-in-out 1.9s infinite,
+      dragonAuraMobile 4.5s ease-in-out 1.9s infinite;
+  }
+  .hero-links {
+    max-width: 62%;
   }
   .hero-links a {
     font-size: 10px;
     padding: 4px 10px;
+    border-color: var(--accent);
+    box-shadow: 0 0 10px -4px rgba(255, 106, 0, 0.6);
   }
   .hero::after {
     border-width: 12px;
+  }
+  .dballs {
+    z-index: 2;
+  }
+  .dball {
+    width: 22px;
+    height: 22px;
+    padding: 3px;
+  }
+  .dball i {
+    font-size: 5px;
+  }
+  /* Mobile circle around the right-pinned dragon (~65% left, 50% top, R=58px). */
+  .dball-1 { top: calc(50% - 58px); left: 65%;               bottom: auto; right: auto; }
+  .dball-2 { top: calc(50% - 36px); left: calc(65% + 45px);  bottom: auto; right: auto; }
+  .dball-3 { top: calc(50% + 13px); left: calc(65% + 57px);  bottom: auto; right: auto; }
+  .dball-4 { top: calc(50% + 52px); left: calc(65% + 25px);  bottom: auto; right: auto; width: 24px; height: 24px; }
+  .dball-5 { top: calc(50% + 52px); left: calc(65% - 25px);  bottom: auto; right: auto; }
+  .dball-6 { top: calc(50% + 13px); left: calc(65% - 57px);  bottom: auto; right: auto; }
+  .dball-7 { top: calc(50% - 36px); left: calc(65% - 45px);  bottom: auto; right: auto; width: 26px; height: 26px; }
+}
+@media (max-width: 480px) {
+  .hero {
+    min-height: 300px;
+  }
+  .hero-title {
+    font-size: 32px;
+    max-width: 60%;
+    letter-spacing: 2px;
+  }
+  .hero-tag {
+    font-size: 10px;
+    letter-spacing: 3px;
+    max-width: 60%;
+  }
+  .hero-sub {
+    font-size: 14px;
+    max-width: 60%;
+  }
+  .hero-grad {
+    padding: 18px 18px;
+  }
+  .hero-goku {
+    object-position: 16% 32%;
+  }
+  .hero-dragon {
+    right: -40px;
+    height: 118%;
+    max-width: 64%;
+    filter: saturate(1.5) brightness(1.25) contrast(1.28)
+      drop-shadow(0 0 22px rgba(51, 204, 51, 0.75))
+      drop-shadow(0 0 48px rgba(255, 106, 0, 0.55))
+      drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
+  }
+  .hero::before {
+    background: radial-gradient(
+      ellipse at 88% 50%,
+      rgba(255, 106, 0, 0.4) 0%,
+      rgba(255, 46, 46, 0.18) 30%,
+      transparent 62%
+    );
+  }
+  .hero-links {
+    gap: 6px;
+    max-width: 60%;
+  }
+  .dball {
+    width: 20px;
+    height: 20px;
+    padding: 2px;
+  }
+  .dball i {
+    font-size: 4px;
+  }
+  /* Smaller circle, shifted right since dragon sticks out further on iPhone SE. */
+  .dball-1 { top: calc(50% - 48px); left: 62%; }
+  .dball-2 { top: calc(50% - 30px); left: calc(62% + 37px); }
+  .dball-3 { top: calc(50% + 11px); left: calc(62% + 47px); }
+  .dball-4 { top: calc(50% + 43px); left: calc(62% + 21px); width: 22px; height: 22px; }
+  .dball-5 { top: calc(50% + 43px); left: calc(62% - 21px); }
+  .dball-6 { top: calc(50% + 11px); left: calc(62% - 47px); }
+  .dball-7 { top: calc(50% - 30px); left: calc(62% - 37px); width: 24px; height: 24px; }
+}
+@keyframes heroAura {
+  0%, 100% {
+    opacity: 0.75;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+}
+@keyframes dragonEnterMobile {
+  0% {
+    transform: translateY(25%) scale(0.4);
+    opacity: 0;
+    filter: brightness(3) saturate(2) contrast(1.4)
+      drop-shadow(0 0 80px rgba(51, 204, 51, 1))
+      drop-shadow(0 0 120px rgba(255, 255, 255, 0.6));
+  }
+  35% {
+    opacity: 0.85;
+    filter: brightness(2.2) saturate(1.8) contrast(1.3)
+      drop-shadow(0 0 70px rgba(51, 204, 51, 0.9))
+      drop-shadow(0 0 40px rgba(255, 255, 255, 0.4));
+  }
+  60% {
+    transform: translateY(-56%) scale(1.06);
+    opacity: 1;
+    filter: brightness(1.7) saturate(1.6) contrast(1.28)
+      drop-shadow(0 0 60px rgba(51, 204, 51, 0.85))
+      drop-shadow(0 0 30px rgba(255, 106, 0, 0.5));
+  }
+  100% {
+    transform: translateY(-50%) scale(1);
+    opacity: 1;
+    filter: saturate(1.45) brightness(1.22) contrast(1.25)
+      drop-shadow(0 0 18px rgba(51, 204, 51, 0.7))
+      drop-shadow(0 0 36px rgba(255, 106, 0, 0.45))
+      drop-shadow(0 0 6px rgba(255, 255, 255, 0.25));
+  }
+}
+@keyframes dragonAuraMobile {
+  0%, 100% {
+    filter: saturate(1.45) brightness(1.22) contrast(1.25)
+      drop-shadow(0 0 18px rgba(51, 204, 51, 0.7))
+      drop-shadow(0 0 36px rgba(255, 106, 0, 0.45))
+      drop-shadow(0 0 6px rgba(255, 255, 255, 0.25));
+  }
+  50% {
+    filter: saturate(1.6) brightness(1.32) contrast(1.3)
+      drop-shadow(0 0 40px rgba(51, 204, 51, 1))
+      drop-shadow(0 0 80px rgba(255, 106, 0, 0.75))
+      drop-shadow(0 0 14px rgba(255, 255, 255, 0.5));
+  }
+}
+@keyframes dragonFloatMobile {
+  0%, 100% {
+    transform: translateY(-50%) scale(1);
+  }
+  50% {
+    transform: translateY(-52%) scale(1.015);
+  }
+}
+@keyframes titleBurn {
+  0%, 100% {
+    text-shadow:
+      2px 3px 0 #000,
+      0 0 30px rgba(255, 100, 0, 0.35);
+  }
+  50% {
+    text-shadow:
+      2px 3px 0 #000,
+      0 0 50px rgba(255, 100, 0, 0.65),
+      0 0 20px rgba(255, 46, 46, 0.45);
   }
 }
 
@@ -567,7 +1017,6 @@ body {
   margin-top: 4px;
 }
 .source-pill,
-.planned-date,
 .deliverable-pill {
   border: 1px solid #292929;
   background: #0b0b0b;
@@ -580,59 +1029,251 @@ body {
 .source-pill {
   color: #aaa;
 }
-.planned-date {
-  color: #cc9900;
-  border-color: #332708;
-  background: #120f04;
-}
 .deliverable-pill {
   color: #7fa7d9;
   border-color: #17263c;
   background: #080f18;
 }
-.pt-track {
-  margin-top: 6px;
-  border: 1px solid #2f2408;
-  background: #110d04;
-  border-radius: 4px;
-  padding: 8px 10px;
+
+/* CORNER DATE STAMP */
+.tr .task-info {
+  padding-right: 80px;
+}
+.task-date-stamp {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  width: 64px;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 4px 5px;
+  border-radius: 5px;
+  border: 1px solid currentColor;
+  font-family: "Oxanium", sans-serif;
+  line-height: 1;
+  text-align: center;
+  pointer-events: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.task-date-stamp .stamp-day {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+  opacity: 0.9;
+}
+.task-date-stamp .stamp-md {
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  margin-top: 4px;
+  padding-top: 4px;
+  border-top: 1px solid currentColor;
+  width: 100%;
+  color: var(--text-bright);
+  opacity: 1;
+}
+.tr:hover .task-date-stamp {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px -6px rgba(0, 0, 0, 0.6);
+}
+.stamp-done {
+  color: var(--green);
+  background: linear-gradient(180deg, rgba(51, 204, 51, 0.12) 0%, rgba(51, 204, 51, 0.04) 100%);
+}
+.stamp-done .stamp-md {
+  color: #b8f0b8;
+}
+.stamp-current {
+  color: var(--accent);
+  background: linear-gradient(180deg, rgba(255, 106, 0, 0.18) 0%, rgba(255, 106, 0, 0.06) 100%);
+  box-shadow: 0 0 0 1px rgba(255, 106, 0, 0.25), 0 0 14px -4px rgba(255, 106, 0, 0.45);
+  animation: stampPulse 1.8s ease-in-out infinite;
+}
+.stamp-current .stamp-md {
+  color: #ffd9b3;
+}
+.stamp-future {
+  color: var(--gold);
+  background: linear-gradient(180deg, rgba(255, 194, 0, 0.10) 0%, rgba(255, 194, 0, 0.03) 100%);
+}
+.stamp-future .stamp-md {
+  color: #ffe9a8;
+}
+.stamp-missed {
+  color: var(--red);
+  background: linear-gradient(180deg, rgba(255, 46, 46, 0.12) 0%, rgba(255, 46, 46, 0.04) 100%);
+}
+.stamp-missed .stamp-md {
+  color: #ffb8b8;
+}
+@keyframes stampPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 1px rgba(255, 106, 0, 0.25), 0 0 14px -4px rgba(255, 106, 0, 0.45);
+  }
+  50% {
+    box-shadow: 0 0 0 1px rgba(255, 106, 0, 0.5), 0 0 22px -2px rgba(255, 106, 0, 0.7);
+  }
+}
+/* PYTORCH "SAIYAN SCROLL" CARD */
+.pt-track {
+  margin-top: 10px;
+  position: relative;
+  border: 1px solid #3a1e05;
+  background:
+    linear-gradient(180deg, #1a0d02 0%, #0f0902 100%);
+  border-radius: 6px;
+  padding: 14px 16px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow:
+    0 0 0 1px rgba(255, 106, 0, 0.08) inset,
+    0 6px 18px -10px rgba(255, 106, 0, 0.45);
+  overflow: hidden;
+}
+.pt-track::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--red) 0%,
+    var(--accent) 35%,
+    var(--accent2) 65%,
+    var(--gold) 100%
+  );
+  box-shadow: 0 0 12px rgba(255, 106, 0, 0.6);
+}
+.pt-track::after {
+  content: "PYTORCH";
+  position: absolute;
+  top: 10px;
+  right: -28px;
+  transform: rotate(35deg);
+  font-family: "Oxanium", sans-serif;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: rgba(255, 194, 0, 0.16);
+  pointer-events: none;
 }
 .pt-track-head {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   flex-wrap: wrap;
   font-family: "Oxanium", sans-serif;
-  font-size: 11px;
-  font-weight: 700;
   letter-spacing: 0.5px;
   text-transform: uppercase;
 }
-.pt-track-head strong {
-  color: #ffd36a;
-  font-weight: 700;
+.pt-track-head .pt-topic {
+  color: #ffe9a8;
+  font-weight: 800;
+  font-size: 15px;
+  letter-spacing: 0.8px;
+  flex: 1 1 auto;
+  min-width: 0;
+  text-shadow: 0 0 14px rgba(255, 154, 0, 0.25);
 }
-.pt-track-head span:last-child {
+.pt-track-head .pt-mins {
   color: var(--accent);
+  font-weight: 800;
+  font-size: 12px;
+  padding: 2px 8px;
+  border: 1px solid #4a2400;
+  background: #1a0b00;
+  border-radius: 3px;
+  letter-spacing: 1px;
 }
 .pt-chip {
-  border: 1px solid #4a3400;
-  background: #1c1300;
+  border: 1px solid var(--accent);
+  background: linear-gradient(180deg, #2a1500 0%, #150a00 100%);
   color: var(--gold);
-  padding: 2px 8px;
+  padding: 3px 10px;
   border-radius: 3px;
-}
-.pt-tasks {
   font-size: 12px;
-  line-height: 1.35;
-  color: #b9a46d;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  box-shadow: 0 0 8px rgba(255, 106, 0, 0.25);
+}
+.pt-status {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+  padding: 3px 9px;
+  border-radius: 3px;
+  border: 1px solid currentColor;
+  text-transform: uppercase;
+  line-height: 1;
+}
+.pt-status-done {
+  color: var(--green);
+  background: rgba(51, 204, 51, 0.08);
+}
+.pt-status-current {
+  color: var(--accent);
+  background: rgba(255, 106, 0, 0.12);
+  animation: ptPulse 1.6s ease-in-out infinite;
+}
+.pt-status-future {
+  color: #a08a4a;
+  background: rgba(160, 138, 74, 0.08);
+}
+.pt-status-pending {
+  color: var(--red);
+  background: rgba(255, 46, 46, 0.08);
+}
+@keyframes ptPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(255, 106, 0, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 10px 2px rgba(255, 106, 0, 0.0);
+  }
+}
+.pt-tasks-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.pt-tasks-list li {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 14px;
+  line-height: 1.45;
+  color: #e8d9a8;
+  padding-left: 18px;
+  position: relative;
+}
+.pt-tasks-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, var(--gold), var(--accent) 60%, #6b1a00 100%);
+  box-shadow: 0 0 6px rgba(255, 106, 0, 0.6);
+}
+.tr.dn .pt-track {
+  opacity: 0.7;
+}
+.tr.dn .pt-track::before {
+  background: linear-gradient(90deg, var(--green-dim), var(--green), var(--green-dim));
+  box-shadow: 0 0 10px rgba(51, 204, 51, 0.35);
+}
+.tr.dn .pt-tasks-list li {
+  color: #9aa68a;
+}
+.tr.dn .pt-tasks-list li::before {
+  background: radial-gradient(circle at 30% 30%, #a8e6a8, var(--green) 60%, var(--green-dim) 100%);
+  box-shadow: 0 0 6px rgba(51, 204, 51, 0.4);
 }
 .tr.current {
   background: #1b1404;
@@ -1043,8 +1684,22 @@ body {
     flex-wrap: wrap;
     padding: 12px 16px;
   }
-  .task-info {
+  .tr .task-info {
     flex-basis: calc(100% - 38px);
+    padding-right: 64px;
+  }
+  .task-date-stamp {
+    top: 10px;
+    right: 12px;
+    width: 56px;
+    padding: 5px 3px 4px;
+  }
+  .task-date-stamp .stamp-day {
+    font-size: 10px;
+    letter-spacing: 1.4px;
+  }
+  .task-date-stamp .stamp-md {
+    font-size: 15px;
   }
   .task-meta {
     max-width: 100%;
@@ -1055,6 +1710,22 @@ body {
   }
   .pt-track {
     flex-basis: 100%;
+    padding: 12px 14px 10px;
+    gap: 8px;
+  }
+  .pt-track-head {
+    gap: 8px;
+  }
+  .pt-track-head .pt-topic {
+    font-size: 14px;
+    flex-basis: 100%;
+    order: -1;
+  }
+  .pt-tasks-list li {
+    font-size: 13px;
+  }
+  .pt-track::after {
+    display: none;
   }
   .pri,
   .xp,
