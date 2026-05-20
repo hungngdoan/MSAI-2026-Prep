@@ -1,9 +1,13 @@
 {
-  "exportedAt": "2026-05-19T03:35:44.256Z",
+  "exportedAt": "2026-05-20T04:26:54.637Z",
   "plan": "MML Study Plan",
   "completed": {
     "w1d1": {
       "completedAt": "2026-05-18",
+      "notes": ""
+    },
+    "w1d2": {
+      "completedAt": "2026-05-19",
       "notes": ""
     }
   }
