@@ -86,12 +86,14 @@ Link only — no copied materials
 ```
 MSAI-2026-Prep
 |-- docs/       GitHub Pages tracker and lightweight public pages
-|-- ch02/       Linear algebra notes, notebooks, module, tests
-|-- ch03/       Analytic geometry notes, notebooks, module, tests
-|-- ch04/       Matrix decompositions notes, notebooks, module, tests
-|-- ch05/       Vector calculus notes, notebooks, module, tests
-|-- ch06/       Probability notes, notebooks, module, tests
-|-- ch07/       Optimization notes, notebooks, module, tests
+|-- mml/        Mathematics for Machine Learning reading notes and exercises
+|   |-- ch02/   Linear algebra notes, notebooks, module, tests
+|   |-- ch03/   Analytic geometry notes, notebooks, module, tests
+|   |-- ch04/   Matrix decompositions notes, notebooks, module, tests
+|   |-- ch05/   Vector calculus notes, notebooks, module, tests
+|   |-- ch06/   Probability notes, notebooks, module, tests
+|   `-- ch07/   Optimization notes, notebooks, module, tests
+|-- pytorch/    Learn PyTorch notebooks and exercises
 |-- capstone/   Final neural-network project and writeup
 |-- package.json
 `-- scripts/serve-docs.js

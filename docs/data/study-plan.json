@@ -14,11 +14,11 @@
       "weeks": "1-3",
       "tag": "v0.1-linear-algebra",
       "milestones": [
-        "ch02/: 4-5 notebooks, linalg.py, tests, README",
+        "mml/ch02/: 4-5 notebooks, linalg.py, tests, README",
         "4-5 notebooks",
         "linalg.py",
         "test_linalg.py",
-        "ch02/README"
+        "mml/ch02/README"
       ]
     },
     {
@@ -28,11 +28,11 @@
       "weeks": "4",
       "tag": "v0.2-analytic-geometry",
       "milestones": [
-        "ch03/: 2 notebooks, geometry.py, tests, README",
+        "mml/ch03/: 2 notebooks, geometry.py, tests, README",
         "2 notebooks",
         "geometry.py",
         "test_geometry.py",
-        "ch03/README"
+        "mml/ch03/README"
       ]
     },
     {
@@ -42,11 +42,11 @@
       "weeks": "5-6",
       "tag": "v0.3-decompositions",
       "milestones": [
-        "ch04/: 4 notebooks (incl image compression), decompositions.py",
+        "mml/ch04/: 4 notebooks (incl image compression), decompositions.py",
         "4 notebooks",
         "decompositions.py",
         "test_decomp.py",
-        "ch04/README"
+        "mml/ch04/README"
       ]
     },
     {
@@ -56,11 +56,11 @@
       "weeks": "7-8",
       "tag": "v0.4-vector-calculus",
       "milestones": [
-        "ch05/: 3 notebooks, calculus.py, tests, README",
+        "mml/ch05/: 3 notebooks, calculus.py, tests, README",
         "3 notebooks",
         "calculus.py",
         "test_calculus.py",
-        "ch05/README"
+        "mml/ch05/README"
       ]
     },
     {
@@ -70,11 +70,11 @@
       "weeks": "9-10",
       "tag": "v0.5-probability",
       "milestones": [
-        "ch06/: 3 notebooks, probability.py, tests, README",
+        "mml/ch06/: 3 notebooks, probability.py, tests, README",
         "3 notebooks",
         "probability.py",
         "test_prob.py",
-        "ch06/README"
+        "mml/ch06/README"
       ]
     },
     {
@@ -84,11 +84,11 @@
       "weeks": "11-12",
       "tag": "v0.6-optimization",
       "milestones": [
-        "ch07/: 3 notebooks, optimizers.py, tests, README",
+        "mml/ch07/: 3 notebooks, optimizers.py, tests, README",
         "3 notebooks",
         "optimizers.py",
         "test_optim.py",
-        "ch07/README"
+        "mml/ch07/README"
       ]
     },
     {
@@ -125,7 +125,7 @@
       "sections": "GT Ch 1 (all 3 sections)",
       "topic": "Systems of Linear Equations",
       "description": "Read all of GT ILA Ch 1: Systems of Linear Equations, Row Reduction, Parametric Form. Play with every interactive demo. Do embedded exercises.",
-      "deliverable": "Init repo: README.md, .gitignore, requirements.txt, ch02/",
+      "deliverable": "Init repo: README.md, .gitignore, requirements.txt, mml/ch02/",
       "minutes": 50,
       "status": ""
     },
@@ -406,7 +406,7 @@
       "sections": "All Ch 2",
       "topic": "Write Tests",
       "description": "pytest tests for linalg.py. Cover: identity, singular, rectangular, zero matrix, known solutions. Minimum 10 test cases.",
-      "deliverable": "ch02/tests/test_linalg.py",
+      "deliverable": "mml/ch02/tests/test_linalg.py",
       "minutes": 50,
       "status": "",
       "ptChapter": "Ch 04",
@@ -461,9 +461,9 @@
       "source": "Review",
       "type": "Review",
       "sections": "All Ch 2",
-      "topic": "ch02/README.md",
+      "topic": "mml/ch02/README.md",
       "description": "Write README: concepts, implementations, ML connections (embeddings = vector spaces, rank = information, Wx+b = affine).",
-      "deliverable": "ch02/README.md",
+      "deliverable": "mml/ch02/README.md",
       "minutes": 50,
       "status": "",
       "ptChapter": "Ch 05",
@@ -520,7 +520,7 @@
       "sections": "GT Ch 6: Dot Products & Orthogonality",
       "topic": "Norms & Inner Products",
       "description": "Read GT ILA Ch 6 section 1: Dot Products and Orthogonality. Interactive demos for geometric meaning. Cosine similarity = NLP embedding similarity.",
-      "deliverable": "Create ch03/ folder",
+      "deliverable": "Create mml/ch03/ folder",
       "minutes": 50,
       "status": "",
       "ptChapter": "Ch 06",
@@ -613,7 +613,7 @@
       "type": "Review",
       "sections": "3.1-3.4",
       "topic": "Ch 3 README & Commit",
-      "description": "ch03/README.md. Final commit.",
+      "description": "mml/ch03/README.md. Final commit.",
       "deliverable": "git push Ch 3. Tag: v0.2-analytic-geometry",
       "minutes": 60,
       "status": ""
@@ -629,7 +629,7 @@
       "sections": "GT Ch 4 (all 3 sections)",
       "topic": "Determinants",
       "description": "Read all of GT ILA Ch 4: Definition, Cofactor Expansions, Determinants and Volumes. det=0 means singular. Volume interpretation.",
-      "deliverable": "Create ch04/ folder",
+      "deliverable": "Create mml/ch04/ folder",
       "minutes": 50,
       "status": ""
     },
@@ -823,7 +823,7 @@
       "type": "Review",
       "sections": "4.1-4.5",
       "topic": "Ch 4 README & Commit",
-      "description": "ch04/README.md with PCA scatter plot. Final commit.",
+      "description": "mml/ch04/README.md with PCA scatter plot. Final commit.",
       "deliverable": "git push Ch 4. Tag: v0.3-decompositions",
       "minutes": 60,
       "status": ""
@@ -839,7 +839,7 @@
       "sections": "5.1",
       "topic": "Univariate Differentiation Review",
       "description": "Read 5.1. Quick review: derivative, product/chain rule. Move fast if comfortable.",
-      "deliverable": "Create ch05/ folder",
+      "deliverable": "Create mml/ch05/ folder",
       "minutes": 50,
       "status": ""
     },
@@ -1033,7 +1033,7 @@
       "type": "Review",
       "sections": "5.1-5.6",
       "topic": "Ch 5 README & Commit",
-      "description": "ch05/README.md with backprop diagram.",
+      "description": "mml/ch05/README.md with backprop diagram.",
       "deliverable": "git push Ch 5. Tag: v0.4-vector-calculus",
       "minutes": 60,
       "status": ""
@@ -1049,7 +1049,7 @@
       "sections": "6.1",
       "topic": "Probability Spaces",
       "description": "Read 6.1. Sample space, events, axioms. Conditional probability, independence.",
-      "deliverable": "Create ch06/ folder",
+      "deliverable": "Create mml/ch06/ folder",
       "minutes": 50,
       "status": ""
     },
@@ -1243,7 +1243,7 @@
       "type": "Review",
       "sections": "6.1-6.6",
       "topic": "Ch 6 README & Commit",
-      "description": "ch06/README.md: cross-entropy = Bernoulli MLE, MSE = Gaussian MLE, L2 = Gaussian prior.",
+      "description": "mml/ch06/README.md: cross-entropy = Bernoulli MLE, MSE = Gaussian MLE, L2 = Gaussian prior.",
       "deliverable": "git push Ch 6. Tag: v0.5-probability",
       "minutes": 60,
       "status": ""
@@ -1259,7 +1259,7 @@
       "sections": "7.1",
       "topic": "Optimization Framework",
       "description": "Read 7.1. Every ML model = optimization. Objective, constraints, feasible set.",
-      "deliverable": "Create ch07/ folder",
+      "deliverable": "Create mml/ch07/ folder",
       "minutes": 50,
       "status": ""
     },
@@ -1453,7 +1453,7 @@
       "type": "Review",
       "sections": "7.1-7.4",
       "topic": "Ch 7 README & Commit",
-      "description": "ch07/README.md with optimizer comparison chart.",
+      "description": "mml/ch07/README.md with optimizer comparison chart.",
       "deliverable": "git push Ch 7. Tag: v0.6-optimization",
       "minutes": 60,
       "status": ""
