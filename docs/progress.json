@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-05-20T04:26:54.637Z",
+  "exportedAt": "2026-05-21T03:59:28.497Z",
   "plan": "MML Study Plan",
   "completed": {
     "w1d1": {
@@ -8,6 +8,10 @@
     },
     "w1d2": {
       "completedAt": "2026-05-19",
+      "notes": ""
+    },
+    "w1d3": {
+      "completedAt": "2026-05-20",
       "notes": ""
     }
   }
