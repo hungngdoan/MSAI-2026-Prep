@@ -1155,6 +1155,27 @@ body {
   color: rgba(255, 194, 0, 0.16);
   pointer-events: none;
 }
+.ssw-track {
+  border-color: #073743;
+  background:
+    linear-gradient(180deg, #03171c 0%, #061012 100%);
+  box-shadow:
+    0 0 0 1px rgba(71, 216, 224, 0.08) inset,
+    0 6px 18px -10px rgba(71, 216, 224, 0.45);
+}
+.ssw-track::before {
+  background: linear-gradient(
+    90deg,
+    #1b8f87 0%,
+    #38cfe0 45%,
+    #a8ffdf 100%
+  );
+  box-shadow: 0 0 12px rgba(71, 216, 224, 0.55);
+}
+.ssw-track::after {
+  content: "SSW";
+  color: rgba(118, 228, 255, 0.16);
+}
 .pt-track-head {
   display: flex;
   align-items: center;
@@ -1193,6 +1214,21 @@ body {
   font-weight: 800;
   letter-spacing: 1.2px;
   box-shadow: 0 0 8px rgba(255, 106, 0, 0.25);
+}
+.ssw-track .pt-topic {
+  color: #bff7ef;
+  text-shadow: 0 0 14px rgba(71, 216, 224, 0.22);
+}
+.ssw-track .pt-mins {
+  color: #76e4ff;
+  border-color: #0c4853;
+  background: #03191d;
+}
+.ssw-track .pt-chip {
+  border-color: #38cfe0;
+  background: linear-gradient(180deg, #07343d 0%, #02171c 100%);
+  color: #bdf8ff;
+  box-shadow: 0 0 8px rgba(71, 216, 224, 0.24);
 }
 .pt-status {
   font-size: 10px;
@@ -1245,6 +1281,9 @@ body {
   padding-left: 18px;
   position: relative;
 }
+.ssw-track .pt-tasks-list li {
+  color: #cae8e4;
+}
 .pt-tasks-list li::before {
   content: "";
   position: absolute;
@@ -1255,6 +1294,10 @@ body {
   border-radius: 50%;
   background: radial-gradient(circle at 30% 30%, var(--gold), var(--accent) 60%, #6b1a00 100%);
   box-shadow: 0 0 6px rgba(255, 106, 0, 0.6);
+}
+.ssw-track .pt-tasks-list li::before {
+  background: radial-gradient(circle at 30% 30%, #a8ffdf, #38cfe0 60%, #075361 100%);
+  box-shadow: 0 0 6px rgba(71, 216, 224, 0.5);
 }
 .tr.dn .pt-track {
   opacity: 0.7;
@@ -1269,6 +1312,10 @@ body {
 .tr.dn .pt-tasks-list li::before {
   background: radial-gradient(circle at 30% 30%, #a8e6a8, var(--green) 60%, var(--green-dim) 100%);
   box-shadow: 0 0 6px rgba(51, 204, 51, 0.4);
+}
+.tr.dn .ssw-track::before {
+  background: linear-gradient(90deg, var(--green-dim), var(--green), var(--green-dim));
+  box-shadow: 0 0 10px rgba(51, 204, 51, 0.35);
 }
 .tr.current {
   background: #1b1404;
@@ -1310,6 +1357,11 @@ body {
   background: #1a0d1a;
   color: #bb66cc;
   border: 1px solid #331a33;
+}
+.badge-both {
+  background: #19120a;
+  color: #e6c86f;
+  border: 1px solid #4d3c14;
 }
 
 .xp {

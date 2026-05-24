@@ -4,7 +4,8 @@ const TYPE_BADGES = {
   Read: { label: 'READ', cls: 'badge-read' },
   Exercise: { label: 'EXERCISE', cls: 'badge-exercise' },
   Python: { label: 'CODE', cls: 'badge-code' },
-  Review: { label: 'REVIEW', cls: 'badge-review' }
+  Review: { label: 'REVIEW', cls: 'badge-review' },
+  Both: { label: 'CODE + REVIEW', cls: 'badge-both' }
 };
 
 const RANKS = [
@@ -307,6 +308,9 @@ export const Renderer = {
     const ptBullets = task.ptChapter
       ? splitPtTasks(task.ptTasks).map((line) => `<li>${escapeHtml(line)}</li>`).join('')
       : '';
+    const sswBullets = task.sswChapter
+      ? splitPtTasks(task.sswTasks).map((line) => `<li>${escapeHtml(line)}</li>`).join('')
+      : '';
     const ptTrack = task.ptChapter ? `
           <div class="pt-track">
             <div class="pt-track-head">
@@ -316,6 +320,17 @@ export const Renderer = {
               <span class="pt-mins">${escapeHtml(task.ptMinutes)}m</span>
             </div>
             <ul class="pt-tasks-list">${ptBullets}</ul>
+          </div>
+        ` : '';
+    const sswTrack = task.sswChapter ? `
+          <div class="pt-track ssw-track">
+            <div class="pt-track-head">
+              <span class="pt-chip">${escapeHtml(task.sswChapter)}</span>
+              <strong class="pt-topic">${escapeHtml(task.sswSection)}</strong>
+              <span class="pt-status pt-status-${ptStatusCls}">${ptStatusLabel}</span>
+              <span class="pt-mins">${escapeHtml(task.sswMinutes)}m</span>
+            </div>
+            <ul class="pt-tasks-list">${sswBullets}</ul>
           </div>
         ` : '';
 
@@ -334,10 +349,15 @@ export const Renderer = {
             ${deliverable}
           </div>
           ${ptTrack}
+          ${sswTrack}
         </div>
         ${stampHtml}
       </div>
     `;
+  },
+
+  _taskMinutes(task) {
+    return Number(task.minutes || 0) + Number(task.ptMinutes || 0) + Number(task.sswMinutes || 0);
   },
 
   _getStats() {
@@ -348,10 +368,10 @@ export const Renderer = {
     const done = completed.length;
     const today = todayIso();
     const todayDone = completed.filter((item) => item.state.completedAt === today).length;
-    const minutes = completed.reduce((sum, item) => sum + item.task.minutes, 0);
+    const minutes = completed.reduce((sum, item) => sum + this._taskMinutes(item.task), 0);
     const todayMinutes = completed
       .filter((item) => item.state.completedAt === today)
-      .reduce((sum, item) => sum + item.task.minutes, 0);
+      .reduce((sum, item) => sum + this._taskMinutes(item.task), 0);
     const pct = total > 0 ? Math.round((done / total) * 100) : 0;
     const dateSet = new Set(completed.map((item) => item.state.completedAt));
     let streak = 0;
@@ -447,7 +467,7 @@ export const Renderer = {
     const dayName = now.toLocaleDateString('en-US', { weekday: 'long' }).toUpperCase();
     const fullDate = now.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
     const rows = planned.length
-      ? planned.map((task) => `<div class="today-row"><strong>${escapeHtml(task.topic)}</strong><span>${task.minutes}m</span></div>`).join('')
+      ? planned.map((task) => `<div class="today-row"><strong>${escapeHtml(task.topic)}</strong><span>${this._taskMinutes(task)}m</span></div>`).join('')
       : `<div class="today-row"><strong>${escapeHtml(nextTask ? nextTask.topic : 'All missions complete')}</strong><span>${nextTask ? formatDate(nextTask.date, { month: 'short', day: 'numeric' }) : 'DONE'}</span></div>`;
 
     const box = document.createElement('div');

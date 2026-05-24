@@ -7,7 +7,7 @@
 </div>
 
 <div align="center">
-🎯 **13 weeks. Math, PyTorch, deep learning, projects.**
+🎯 **10 weeks. Math, PyTorch, SSW, deep learning, projects.**
 **Everything I build on the road to UT Austin MSAI.**
 </div>
 
@@ -116,7 +116,7 @@ The static tracker lives in `docs/`. It uses:
 - `docs/index.html` for the page.
 - `docs/css/styles.css` for the Dragon Ball-inspired theme.
 - `docs/js/` for rendering and browser progress storage.
-- `docs/data/study-plan.json` for the study plan imported from `MML_Study_Plan_v4.xlsx`.
+- `docs/data/study-plan.json` for the study plan imported from `MML_Study_Plan_v5.1.xlsx`.
 - `docs/data/progress.json` for optional committed progress that should travel with the repo.
 - `package.json` and `scripts/serve-docs.js` for the local `npm start` server.
 
