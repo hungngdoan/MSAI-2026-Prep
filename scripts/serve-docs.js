@@ -3,7 +3,7 @@ const http = require("http");
 const path = require("path");
 
 const host = "localhost";
-const port = Number(process.env.PORT || 8082);
+const startPort = Number(process.env.PORT || 8082);
 const root = path.resolve(__dirname, "..", "docs");
 
 const mimeTypes = {
@@ -34,24 +34,42 @@ function resolveRequestPath(urlPath) {
   return filePath;
 }
 
-const server = http.createServer((req, res) => {
-  const filePath = resolveRequestPath(req.url || "/");
-  if (!filePath) {
-    send(res, 403, "Forbidden");
-    return;
-  }
-
-  fs.readFile(filePath, (error, data) => {
-    if (error) {
-      send(res, error.code === "ENOENT" ? 404 : 500, error.code === "ENOENT" ? "Not found" : "Server error");
+function createServer() {
+  return http.createServer((req, res) => {
+    const filePath = resolveRequestPath(req.url || "/");
+    if (!filePath) {
+      send(res, 403, "Forbidden");
       return;
     }
 
-    const contentType = mimeTypes[path.extname(filePath).toLowerCase()] || "application/octet-stream";
-    send(res, 200, data, contentType);
-  });
-});
+    fs.readFile(filePath, (error, data) => {
+      if (error) {
+        send(res, error.code === "ENOENT" ? 404 : 500, error.code === "ENOENT" ? "Not found" : "Server error");
+        return;
+      }
 
-server.listen(port, host, () => {
-  console.log(`[MSAI] Server at http://${host}:${port}/`);
-});
+      const contentType = mimeTypes[path.extname(filePath).toLowerCase()] || "application/octet-stream";
+      send(res, 200, data, contentType);
+    });
+  });
+}
+
+function listen(port, attempts = 0) {
+  const server = createServer();
+
+  server.on("error", (error) => {
+    if (error.code === "EADDRINUSE" && attempts < 20) {
+      const nextPort = port + 1;
+      console.warn(`[MSAI] Port ${port} is busy, trying ${nextPort}...`);
+      listen(nextPort, attempts + 1);
+      return;
+    }
+    throw error;
+  });
+
+  server.listen(port, host, () => {
+    console.log(`[MSAI] Server at http://${host}:${port}/`);
+  });
+}
+
+listen(startPort);
