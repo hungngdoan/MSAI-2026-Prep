@@ -46,7 +46,6 @@ Daniel Bourke / Zero to Mastery
 MIT Licensed
 
 `Tensors` `Training Loops` `Datasets` `Experiments`
-
 </td>
 <td align="center" width="33%">
 
