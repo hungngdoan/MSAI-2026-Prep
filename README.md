@@ -2,59 +2,48 @@
 
 # `>_ MSAI 2026 Prep`
 
-[**Live MML Study Tracker**](https://hungngdoan.github.io/MSAI-2026-Prep/)
+[**Live PyTorch Study Tracker**](https://hungngdoan.github.io/MSAI-2026-Prep/)
 
 </div>
 
 <div align="center">
-🎯 **10 weeks. Math, PyTorch, SSW, deep learning, projects.**
-**Everything I build on the road to UT Austin MSAI.**
+🔥 **8 weeks. 9 PyTorch chapters. One capstone.**
+**Master PyTorch before the UT Austin MSAI deep learning course.**
 </div>
 
-|        Phase         | Focus                                                        | Output                            |
-| :------------------: | :----------------------------------------------------------- | :-------------------------------- |
-|  🧮 **Foundations**  | Linear algebra, calculus, probability, PyTorch fundamentals  | Notes, derivations, notebooks     |
-| 🔥 **Deep Learning** | Networks, optimization, convolution, attention, transformers | Implementations and concept notes |
-|   🛠️ **Projects**    | Apply what I learn to end-to-end ML projects                 | Portfolio-ready writeups          |
-|  🚀 **Application**  | SOP, resume, recommendations, program prep                   | Polished application materials    |
-
 ---
+
+## Goal
+
+Work through [**Learn PyTorch for Deep Learning**](https://www.learnpytorch.io/) chapters **01 to 09**,
+then build one end-to-end capstone, in the window **2026-06-30 → 2026-08-24** (the day before
+the UT Austin deep learning course starts). Chapter `00` (tensor fundamentals) is already done.
+
+> This builds fluency in the PyTorch tooling, not the underlying math. The linear algebra,
+> calculus, and probability foundations from the earlier MML phase now live in [`archive/`](archive/).
 
 ## Resources
 
 <table>
 <tr>
-<td align="center" width="33%">
+<td align="center" width="50%">
 
-### 📐 Math
-
-[**Mathematics for Machine Learning**](https://mml-book.com/)
-
-Deisenroth, Faisal & Ong
-Cambridge University Press
-
-`Linear Algebra` `Calculus` `Probability` `Optimization`
-
-</td>
-<td align="center" width="33%">
-
-### 🔶 PyTorch
+### 🔶 Main Course
 
 [**Learn PyTorch for Deep Learning**](https://www.learnpytorch.io/)
 
-Daniel Bourke / Zero to Mastery
-MIT Licensed
+Daniel Bourke / Zero to Mastery — MIT Licensed
 
-`Tensors` `Training Loops` `Datasets` `Experiments`
+`Tensors` `Training Loops` `CNNs` `Transfer Learning` `ViT` `Deployment`
+
 </td>
-<td align="center" width="33%">
+<td align="center" width="50%">
 
-### 🧠 Deep Learning
+### 🧠 What It Feeds Into
 
 [**UT Austin Deep Learning Class**](https://ut.philkr.net/deeplearning/)
 
-UT Austin DL Group
-Link only — no copied materials
+Phil Krähenbühl — link only, no copied materials
 
 `CNNs` `Attention` `Transformers` `Training`
 
@@ -64,19 +53,27 @@ Link only — no copied materials
 
 ---
 
-## Deep Learning Path
+## The Plan
 
-> Following the [UT Austin Deep Learning Class](https://ut.philkr.net/deeplearning/) as the main sequence.
+One block per chapter. Each chapter follows the same rhythm: **read & follow along → code from
+memory → review + exercises + deliverable**. Pace is ~60-90 min/day, 6 days/week (Sunday rest).
 
-|  #  | Topics                                                               | Status |
-| :-: | :------------------------------------------------------------------- | :----: |
-|  1  | Introduction, statistics, linear algebra, tensors, gradients         |   ⬜   |
-|  2  | Regression, classification, losses, optimization, computation graphs |   ⬜   |
-|  3  | Deep networks, activations, SGD, practical network design            |   ⬜   |
-|  4  | Vanishing gradients, normalization, residual connections             |   ⬜   |
-|  5  | Convolution, pooling, CNN design                                     |   ⬜   |
-|  6  | Attention, multi-head attention, positional embeddings, transformers |   ⬜   |
-|  7  | Advanced training, overfitting, practical implementation             |   ⬜   |
+| Block | Chapter | Topic | Days | Dates |
+| :---: | :------ | :---- | :--: | :---- |
+|  1  | [01 Workflow](https://www.learnpytorch.io/01_pytorch_workflow/) | Data, `nn.Module`, the 5-step training loop, save/load | 3 | Jun 30 – Jul 2 |
+|  2  | [02 Classification](https://www.learnpytorch.io/02_pytorch_classification/) | Non-linear data, `BCEWithLogitsLoss`, ReLU, multiclass | 3 | Jul 3 – Jul 6 |
+|  3  | [03 Computer Vision](https://www.learnpytorch.io/03_pytorch_computer_vision/) | FashionMNIST, `DataLoader`, TinyVGG, `Conv2d`/`MaxPool2d` | 4 | Jul 7 – Jul 10 |
+|  4  | [04 Custom Datasets](https://www.learnpytorch.io/04_pytorch_custom_datasets/) | `ImageFolder`, custom `Dataset`, transforms, augmentation | 4 | Jul 11 – Jul 15 |
+|  5  | [05 Going Modular](https://www.learnpytorch.io/05_pytorch_going_modular/) | Notebook → `.py` scripts, CLI training with `argparse` | 2 | Jul 16 – Jul 17 |
+|  6  | [06 Transfer Learning](https://www.learnpytorch.io/06_pytorch_transfer_learning/) | `EfficientNet_B0`, freeze layers, feature extraction | 3 | Jul 18 – Jul 21 |
+|  7  | [07 Experiment Tracking](https://www.learnpytorch.io/07_pytorch_experiment_tracking/) | TensorBoard, comparing runs, picking the best model | 3 | Jul 22 – Jul 24 |
+|  8  | [08 Paper Replicating](https://www.learnpytorch.io/08_pytorch_paper_replicating/) | Vision Transformer from scratch (the hard one) | 5 | Jul 25 – Jul 30 |
+|  9  | [09 Model Deployment](https://www.learnpytorch.io/09_pytorch_model_deployment/) | Gradio, FoodVision, deploy to Hugging Face Spaces | 4 | Jul 31 – Aug 4 |
+| 10  | Capstone & Course Prep | End-to-end project + UT DL environment setup | — | Aug 5 – Aug 24 |
+
+The capstone block keeps several **flex days** (Aug 10, 12, 14, 17, 19, 21) deliberately empty.
+They absorb overflow — especially from Block 8 (ViT), which is the most likely to run long. If you
+fall behind, skim Ch 08 and protect the deploy + capstone work.
 
 ---
 
@@ -84,125 +81,56 @@ Link only — no copied materials
 
 ```
 MSAI-2026-Prep
-|-- docs/       GitHub Pages tracker and lightweight public pages
-|-- mml/        Mathematics for Machine Learning reading notes and exercises
-|   |-- ch02/   Linear algebra notes, notebooks, module, tests
-|   |-- ch03/   Analytic geometry notes, notebooks, module, tests
-|   |-- ch04/   Matrix decompositions notes, notebooks, module, tests
-|   |-- ch05/   Vector calculus notes, notebooks, module, tests
-|   |-- ch06/   Probability notes, notebooks, module, tests
-|   `-- ch07/   Optimization notes, notebooks, module, tests
-|-- pytorch/    Learn PyTorch notebooks and exercises
-|-- capstone/   Final neural-network project and writeup
+|-- docs/        GitHub Pages tracker (the live site)
+|   |-- index.html
+|   |-- css/styles.css
+|   |-- js/      renderer, store, main
+|   `-- data/study-plan.json   <- the entire plan lives here
+|-- pytorch/     Learn PyTorch notebooks and exercises, ch00-ch09
+|-- capstone/    Final end-to-end project and writeup
+|-- archive/     Retired MML math phase (notes, plans, workbook)
 |-- package.json
 `-- scripts/serve-docs.js
 ```
 
----
-
-## Progress
-
-|    Date    | What happened                          | Next                                   |
-| :--------: | :------------------------------------- | :------------------------------------- |
-| 2026-05-02 | Repo setup, README, resources gathered | Create folders, start first weekly log |
+Each `pytorch/chXX_*` folder holds a **sample** notebook (follow along) and an **exercise**
+notebook (type the code from memory). See [`pytorch/README.md`](pytorch/README.md).
 
 ---
 
-## MML Study Tracker
+## PyTorch Study Tracker
 
-The static tracker lives in `docs/`. It uses:
+The static tracker lives in [`docs/`](docs/). It is fully data-driven:
 
-- `docs/index.html` for the page.
-- `docs/css/styles.css` for the Dragon Ball-inspired theme.
-- `docs/js/` for rendering and browser progress storage.
-- `docs/data/study-plan.json` for the study plan imported from `MML_Study_Plan_v5.1.xlsx`.
-- `docs/data/progress.json` for optional committed progress that should travel with the repo.
-- `package.json` and `scripts/serve-docs.js` for the local `npm start` server.
+- [`docs/data/study-plan.json`](docs/data/study-plan.json) is the single source of truth — edit it to change the plan.
+- `docs/index.html` / `docs/css/styles.css` are the page and theme.
+- `docs/js/` renders the plan and stores progress in the browser.
+- `docs/progress.json` (optional) holds committed progress that travels with the repo.
 
 ### Run Locally
 
-Run the page through a local server because the app uses JavaScript modules and `fetch()`:
+The page uses JavaScript modules and `fetch()`, so serve it instead of opening the file directly:
 
 ```powershell
 cd d:\workspace\MSAI-2026-Prep
 npm start
 ```
 
-Then open:
-
-```text
-http://localhost:8082/
-```
-
-`npm start` serves the static `docs/` folder with Node and prints a clickable
-terminal line:
-
-```text
-[MSAI] Server at http://localhost:8082/
-```
-
-There are no npm dependencies to install for the tracker.
+Then open `http://localhost:8082/`. There are no npm dependencies to install.
 
 ### Progress Storage
 
-When running locally through `localhost`, clicking a checkbox saves progress in the current browser under this `localStorage` key:
+On `localhost`, clicking a checkbox saves progress in the browser under the `localStorage`
+key `pytorch-progress-v1`. On the deployed GitHub Pages site, clicks are session-only and reset
+to the committed state in `docs/progress.json` on refresh.
 
-```text
-mml-progress-v1
-```
-
-This keeps the local click -> export -> commit workflow intact while editing.
-
-On the deployed GitHub Pages site, visitor clicks are session-only. Refreshing, navigating, or opening a new tab returns the tracker to the committed state in `docs/data/progress.json`. Any stale `mml-progress-v1` data from older deployed visits is cleared automatically on the next visit.
-
-### Keep Progress Updated In Git
-
-To make progress part of a commit:
-
-1. Click `EXPORT` in the tracker.
-2. From the exported JSON, copy the `completed` object.
-3. Replace the contents of `docs/data/progress.json` with that object.
-4. Commit and push:
-
-```powershell
-git add docs/data/progress.json
-git commit -m "chore: update study tracker progress"
-git push
-```
-
-The app loads `docs/data/progress.json` first. On `localhost`, it then merges browser `localStorage` on top so local clicks still work immediately. On GitHub Pages, browser progress is not persisted.
+To version your progress: click `EXPORT`, copy the `completed` object, paste it into
+`docs/progress.json`, then commit it.
 
 ### GitHub Pages
 
-Yes, this can be viewable on GitHub Pages. In the repository settings:
-
-1. Go to `Settings` -> `Pages`.
-2. Set source to `Deploy from a branch`.
-3. Select your branch, usually `main`.
-4. Select the `/docs` folder.
-5. Save.
-
-After that, every push to the selected branch auto-deploys the static site. For a normal project repo, the URL is usually:
-
-```text
-https://<your-username>.github.io/MSAI-2026-Prep/
-```
-
-If the repository itself is named `<your-username>.github.io`, then it is served at:
-
-```text
-https://<your-username>.github.io/
-```
-
-No backend server is needed for viewing. GitHub Pages cannot save checkbox clicks back into the repo by itself, so use the export-and-commit workflow above when you want versioned progress.
-
----
-
-## Weekly Rhythm
-
-```
-Pick topic  →  Study  →  Code  →  Write summary  →  Reflect  →  Plan next
-```
+In repository **Settings → Pages**: source `Deploy from a branch`, branch `main`, folder `/docs`.
+Every push then auto-deploys to `https://hungngdoan.github.io/MSAI-2026-Prep/`.
 
 ---
 
@@ -212,13 +140,14 @@ My own notes, solutions, and experiments. External resources are references, not
 
 - Link to original sources. No copied slides, videos, or PDFs.
 - Summaries in my own words. Short quotes cited.
-- License notes included when adapting code.
-- Dragon Ball, Goku, and related marks belong to their respective owners. The tracker theme is fan-inspired, personal, non-commercial, and not monetized.
+- License notes included when adapting code (learnpytorch.io is MIT licensed).
+- Dragon Ball, Goku, and related marks belong to their respective owners. The tracker theme is
+  fan-inspired, personal, non-commercial, and not monetized.
 
 ---
 
 <div align="center">
 
-_Started May 2026. Target: application-ready by July 30._
+_PyTorch sprint: 2026-06-30 → 2026-08-24. Target: PyTorch-fluent before the MSAI deep learning course._
 
 </div>

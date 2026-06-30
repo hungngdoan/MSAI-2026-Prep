@@ -1,4 +1,4 @@
-const STORAGE_KEY = 'mml-progress-v1';
+const STORAGE_KEY = 'pytorch-progress-v1';
 const EPHEMERAL = (() => {
   const host = location.hostname;
   return host !== 'localhost' && host !== '127.0.0.1' && host !== '';
