@@ -85,12 +85,16 @@ MSAI-2026-Prep
 |   |-- index.html
 |   |-- css/styles.css
 |   |-- js/      renderer, store, main
-|   `-- data/study-plan.json   <- the entire plan lives here
+|   `-- data/study-plan.json   <- the plan; single source of truth
+|-- PyTorch_Study_Plan.xlsx    Generated Excel export of the plan
 |-- pytorch/     Learn PyTorch notebooks and exercises, ch00-ch09
 |-- capstone/    Final end-to-end project and writeup
 |-- archive/     Retired MML math phase (notes, plans, workbook)
+|-- requirements.txt
 |-- package.json
-`-- scripts/serve-docs.js
+`-- scripts/
+    |-- serve-docs.js          Local static server for docs/
+    `-- build_plan_xlsx.py     Rebuild the .xlsx from study-plan.json
 ```
 
 Each `pytorch/chXX_*` folder holds a **sample** notebook (follow along) and an **exercise**
@@ -106,6 +110,17 @@ The static tracker lives in [`docs/`](docs/). It is fully data-driven:
 - `docs/index.html` / `docs/css/styles.css` are the page and theme.
 - `docs/js/` renders the plan and stores progress in the browser.
 - `docs/progress.json` (optional) holds committed progress that travels with the repo.
+
+### Excel Workbook
+
+The plan also exists as a human-readable spreadsheet, `PyTorch_Study_Plan.xlsx` (sheets:
+Overview, Daily Plan, Chapters). It is a **generated export**, not a second source to hand-edit.
+After changing `study-plan.json`, rebuild it so the two never drift:
+
+```powershell
+pip install openpyxl   # once
+python scripts/build_plan_xlsx.py
+```
 
 ### Run Locally
 
