@@ -250,7 +250,7 @@ export const Renderer = {
     sec.innerHTML = `
       <div class="sec-head" data-week="${week}">
         <div class="db"><span class="st">${week}</span></div>
-        <h2>WEEK ${week} // ${escapeHtml(chapter ? chapter.title.toUpperCase() : 'BUFFER')}</h2>
+        <h2>BLOCK ${week} // ${escapeHtml(chapter ? chapter.title.toUpperCase() : 'BUFFER')}</h2>
         <span class="sec-cnt week-date">${dateRange}</span>
         <span class="${countCls}">${progress.done}/${progress.total}</span>
         <span class="arr ${isOpen ? '' : 'shut'}">&#9660;</span>
